@@ -9,6 +9,7 @@
   "author": "FlyByWire Simulations and Synaptic Simulations",
   "license": "GPL-3.0",
   "dependencies": {
+    "mathjs": "^10.1.0",
     "typescript": "^4.5.4"
   },
   "devDependencies": {

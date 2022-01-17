@@ -1,3 +1,5 @@
+import { asin, atan2, cos, sin } from './trig';
+
 export type Radians = number;
 
 export type Degrees = number;
@@ -26,3 +28,39 @@ export const robustAcos = (value: number): number => {
 
     return value;
 };
+
+export function clampAngle(a: DegreesTrue): DegreesTrue {
+    while (a >= 360) {
+        a -= 360;
+    }
+    while (a < 0) {
+        a += 360;
+    }
+    return a;
+}
+
+export function diffAngle(a: DegreesTrue, b: DegreesTrue): DegreesTrue {
+    let diff = b - a;
+    while (diff > 180) {
+        diff -= 360;
+    }
+    while (diff <= -180) {
+        diff += 360;
+    }
+    return diff;
+}
+
+export function coordinatesToSpherical(location: Coordinates) {
+    return [
+        cos(location.lat) * cos(location.long),
+        cos(location.lat) * sin(location.long),
+        sin(location.lat),
+    ];
+}
+
+export function sphericalToCoordinates(spherical: [number, number, number]): Coordinates {
+    return {
+        lat: asin(spherical[2]),
+        long: atan2(spherical[1], spherical[0]),
+    };
+}
