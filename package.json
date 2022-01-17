@@ -1,0 +1,17 @@
+{
+  "name": "msfs-geo",
+  "version": "0.1.0",
+  "description": "A set of geographic mathematical utility functions, designed for use in aviation, hence the use of Nautical Miles, Feet, and Degrees",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FlyByWire Simulations and Synaptic Simulations",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@flybywiresim/eslint-config": "^0.2.3"
+  }
+}
