@@ -1,4 +1,4 @@
-import { Coordinates, Degrees } from './common';
+import { Coordinates, DegreesTrue } from './common';
 import { atan2, cos, sin } from './trig';
 
 /**
@@ -6,7 +6,7 @@ import { atan2, cos, sin } from './trig';
  * @param from
  * @param to
  */
-export function bearingTo(from: Coordinates, to: Coordinates): Degrees {
+export function bearingTo(from: Coordinates, to: Coordinates): DegreesTrue {
     return (atan2(
         sin(to.long - from.long)
                 * cos(to.lat),

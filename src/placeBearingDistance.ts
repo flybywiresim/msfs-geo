@@ -1,5 +1,5 @@
 import { Coordinates, DegreesTrue, NauticalMiles } from './common';
-import { DEG_TO_RAD, EARTH_RADIUS, MAX_LON, MIN_LON, RAD_TO_DEG } from './constants';
+import { EARTH_RADIUS, MAX_LON, MIN_LON } from './constants';
 import { asin, atan2, cos, sin } from './trig';
 
 /**
