@@ -1,6 +1,6 @@
 {
   "name": "msfs-geo",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha0",
   "description": "A set of geographic mathematical utility functions, designed for use in aviation, hence the use of Nautical Miles, Feet, and Degrees",
   "scripts": {
     "build": "rollup -c rollup.config.js",
