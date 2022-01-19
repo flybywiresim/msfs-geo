@@ -5,4 +5,5 @@ export * from './distanceTo';
 export * from './placeBearingIntersection';
 export * from './getDistanceBounds';
 export * from './placeBearingDistance';
+export * from './smallCircleGreatCircleIntersection';
 export * from './trig';
