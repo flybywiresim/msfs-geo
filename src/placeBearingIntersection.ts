@@ -10,7 +10,7 @@ import { bearingTo } from './bearingTo';
  * @param point2
  * @param bearing2
  */
-export function greatCircleIntersection(point1: Coordinates, bearing1: DegreesTrue, point2: Coordinates, bearing2: DegreesTrue): [Coordinates, Coordinates] {
+export function placeBearingIntersection(point1: Coordinates, bearing1: DegreesTrue, point2: Coordinates, bearing2: DegreesTrue): [Coordinates, Coordinates] {
     const Pa11 = coordinatesToSpherical(point1);
     const point12 = placeBearingDistance(point1, clampAngle(bearing1), 500);
     const Pa12 = coordinatesToSpherical(point12);

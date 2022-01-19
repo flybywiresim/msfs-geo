@@ -1,5 +1,5 @@
 import { Coordinates, NauticalMiles } from './common';
-import { DEG_TO_RAD, EARTH_RADIUS, MAX_LAT, MAX_LON, MIN_LAT, MIN_LON, RAD_TO_DEG } from './constants';
+import { DegToRad, EARTH_RADIUS, MAX_LAT, MAX_LON, MIN_LAT, MIN_LON, RadToDeg } from './constants';
 
 /**
  * Returns the Southwest and Northeast corner of a box around a point with a minimum distance
@@ -10,17 +10,17 @@ export const getDistanceBounds = (
     centre: Coordinates,
     distance: NauticalMiles,
 ): [Coordinates, Coordinates] => {
-    const radLat = DEG_TO_RAD(centre.lat);
-    const radLong = DEG_TO_RAD(centre.long);
+    const radLat = DegToRad(centre.lat);
+    const radLong = DegToRad(centre.long);
 
     const radDist = distance / EARTH_RADIUS;
     let minLat = radLat - radDist;
     let maxLat = radLat + radDist;
 
-    const MAX_LAT_RAD = DEG_TO_RAD(MAX_LAT);
-    const MIN_LAT_RAD = DEG_TO_RAD(MIN_LAT);
-    const MAX_LON_RAD = DEG_TO_RAD(MAX_LON);
-    const MIN_LON_RAD = DEG_TO_RAD(MIN_LON);
+    const MAX_LAT_RAD = DegToRad(MAX_LAT);
+    const MIN_LAT_RAD = DegToRad(MIN_LAT);
+    const MAX_LON_RAD = DegToRad(MAX_LON);
+    const MIN_LON_RAD = DegToRad(MIN_LON);
 
     let minLong;
     let maxLong;
@@ -49,13 +49,13 @@ export const getDistanceBounds = (
     return [
         // Southwest
         {
-            lat: RAD_TO_DEG(minLat),
-            long: RAD_TO_DEG(minLong),
+            lat: RadToDeg(minLat),
+            long: RadToDeg(minLong),
         },
         // Northeast
         {
-            lat: RAD_TO_DEG(maxLat),
-            long: RAD_TO_DEG(maxLong),
+            lat: RadToDeg(maxLat),
+            long: RadToDeg(maxLong),
         },
     ];
 };

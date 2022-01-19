@@ -1,15 +1,15 @@
 import { Degrees, Latitude, Longitude, Metres, NauticalMiles, Radians } from './common';
 
-export function DEG_TO_RAD(value: Degrees): Radians {
+export function DegToRad(value: Degrees): Radians {
     return value * (Math.PI / 180);
 }
-export function RAD_TO_DEG(value: Radians): Degrees {
+export function RadToDeg(value: Radians): Degrees {
     return value * (180 / Math.PI);
 }
-export function NM_TO_METRES(value: NauticalMiles): Metres {
+export function NmToMetres(value: NauticalMiles): Metres {
     return value * 1852;
 }
-export function METRES_TO_NM(value: Metres): NauticalMiles {
+export function MetresToNm(value: Metres): NauticalMiles {
     return value / 1852;
 }
 
