@@ -24,8 +24,8 @@ describe('smallCircleGreatCircleIntersection', () => {
             long: 10,
         }, 0);
         expect(intersections).not.toBeNull();
-        expect(intersections![0].long).toBeLessThan(-9.999);
-        expect(intersections![0].long).toBeGreaterThan(-10.01);
+        expect(intersections![0].long).toBeLessThan(-169.999);
+        expect(intersections![0].long).toBeGreaterThan(-170.01);
         expect(intersections![1].long).toBeLessThan(10.01);
         expect(intersections![1].long).toBeGreaterThan(9.999);
     });
@@ -160,5 +160,24 @@ describe('smallCircleGreatCircleIntersection', () => {
         expect(intersection1![1].long).toBeLessThan(0.1);
         expect(intersection1![0].long).toBeGreaterThan(179.9);
         expect(intersection1![0].long).toBeLessThan(180.1);
+    });
+    it('Check that intercepts work with negative longitude', () => {
+        const intersections = smallCircleGreatCircleIntersection({
+            lat: 10,
+            long: -100,
+        }, 0.1, {
+            lat: 0,
+            long: -100,
+        }, 0);
+        expect(intersections).not.toBeNull();
+        expect(intersections![0].lat).toBeGreaterThan(9.98);
+        expect(intersections![0].lat).toBeLessThan(10.02);
+        expect(intersections![1].lat).toBeGreaterThan(9.98);
+        expect(intersections![1].lat).toBeLessThan(10.02);
+
+        expect(intersections![0].long).toBeGreaterThan(-100.1);
+        expect(intersections![0].long).toBeLessThan(-99.9);
+        expect(intersections![1].long).toBeGreaterThan(-100.1);
+        expect(intersections![1].long).toBeLessThan(-99.9);
     });
 });
