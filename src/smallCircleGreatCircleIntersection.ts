@@ -11,9 +11,13 @@ import { bearingTo } from './bearingTo';
 function xyzToCoordinates(x: number, y: number, z: number): Coordinates {
     const theta = Math.atan2(Math.sqrt(x ** 2 + y ** 2), z);
 
-    let phi = Math.PI / 2;
+    // From: https://en.wikipedia.org/wiki/Spherical_coordinate_system#Coordinate_system_conversions
+    let phi = NaN;
     if (x > 0) phi = Math.atan(y / x);
-    else if (x < 0) phi = Math.PI + Math.atan(y / x);
+    else if (x < 0 && y >= 0) phi = Math.atan(y / x) + Math.PI;
+    else if (x < 0 && y < 0) phi = Math.atan(y / x) - Math.PI;
+    else if (x === 0 && y > 0) phi = Math.PI;
+    else if (x === 0 && y < 0) phi = -Math.PI;
 
     return {
         lat: thetaToLat(theta),
