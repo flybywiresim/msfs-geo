@@ -52,6 +52,19 @@ describe('smallCircleGreatCircleIntersection', () => {
         expect(intersection2!.long).toBeGreaterThan(0.99);
         expect(intersection2!.long).toBeLessThan(1.01);
     });
+    it('Check that first intercept from inside the circle finds the right solution', () => {
+        // this is a real case for an FD leg on the SEMC MSV1A departure that was broken
+        const intersection = firstSmallCircleIntersection({
+            lat: -2.257444381713867,
+            long: -78.110107421875,
+        }, 8.002046984678726, {
+            lat: -2.257444381713867,
+            long: -78.110107421875,
+        }, 25.967487812042236);
+        expect(intersection).not.toBeNull();
+        expect(intersection!.lat).toBeCloseTo(-2.137755053754944, 2);
+        expect(intersection!.long).toBeCloseTo(-78.05177509032232, 2);
+    });
     it('Check that the first intercept is returned when east of the circle', () => {
         const intersection1 = firstSmallCircleIntersection({
             lat: 0,
