@@ -4,7 +4,8 @@
   "description": "A set of geographic mathematical utility functions, designed for use in aviation, hence the use of Nautical Miles, Feet, and Degrees",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --cache **/*.{js,ts}",
+    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "author": "FlyByWire Simulations and Synaptic Simulations",
