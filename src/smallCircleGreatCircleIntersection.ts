@@ -159,11 +159,11 @@ export function firstSmallCircleIntersection(
 
     if (distanceTo(greatCircleReference, smallCircleCentre) <= smallCircleRadius) {
         // The great circle reference is inside the circle, use the intercept which is in-front of the great circle reference as per the great circle bearing
-        if (diffAngle(greatCircleBearing, bearingTo(greatCircleReference, intercepts[0])) <= 90) {
+        if (Math.abs(diffAngle(greatCircleBearing, bearingTo(greatCircleReference, intercepts[0]))) <= 90) {
             return intercepts[0];
         }
         return intercepts[1];
-    } if (diffAngle(greatCircleBearing, bearingTo(greatCircleReference, smallCircleCentre)) <= 90) {
+    } if (Math.abs(diffAngle(greatCircleBearing, bearingTo(greatCircleReference, smallCircleCentre))) <= 90) {
         // The small circle centre is in-front of the great circle reference, use the closest intercept
         if (distanceTo(greatCircleReference, intercepts[0]) < distanceTo(greatCircleReference, intercepts[1])) {
             return intercepts[0];
